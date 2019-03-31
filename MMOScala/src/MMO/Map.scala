@@ -1,5 +1,6 @@
 package MMO
 
-class Map {
-
+class Map(width: Int, height: Int) {
+  def generate(){}
+  def draw(){}
 }

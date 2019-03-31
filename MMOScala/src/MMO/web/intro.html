@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Play RPS</title>
+    <style>
+        h1{
+            position: absolute;
+            width:100%;
+            text-align:center;
+            top: 20%;
+        }
+        h3{
+            position: absolute;
+            width:100%;
+            text-align:center;
+            top: 40%;
+        }
+        input {
+            position: absolute;
+            text-align:center;
+            top: 55%;
+            height:5%;
+            width:25%;
+            left:37.5%;
+        }
+        button{
+            position: absolute;
+            text-align:center;
+            top: 70%;
+            left:42.5%;
+            width:15%;
+            border: 2px solid black;
+            background-color: white;
+            padding: 14px 28px;
+        }
+        button:hover{
+            background: darkturquoise;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<h1>Welcome to RPS battle royale!!!!</h1>
+<h3> type your nickname here...</h3>
+<input id="name" type="text"></input>
+<a href="game.html">
+    <button id="startgame" onclick="getUser()">Let's go!</button>
+</a>
+<script src="../game/game.js"></script>
+</body>
+</html>

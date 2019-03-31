@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Play RPS - We Have A Winner!</title>
+    <style>
+        .container {
+            position: relative;
+            margin: auto;
+        }
+        h1 {
+            margin: auto;
+            width: 50%;
+            text-align: center;
+            color: gold;
+            text-shadow: 1.5px 1.5px black;
+        }
+        h2 {
+            text-align: center;
+        }
+        h3 {
+            text-align: center;
+        }
+        p {
+            text-align: center;
+        }
+        input {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width:180px;
+            border: 2px solid black;
+            background-color: white;
+            padding: 14px 28px;
+        }
+        input:hover {
+            background: lightgreen;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Winner!</h1>
+    <h2>_____ is the Champion.</h2>
+    <h3>Top 3 Players</h3>
+    <p>
+        1.<br>
+        2.<br>
+        3.
+    </p>
+    <h3>Your Position: _</h3>
+    <a href="intro.html">
+        <input type="button" onclick="shift()" value="Play Again">
+    </a>
+</div>
+
+<script src="../game/game.js"></script>
+
+</body>
+</html>

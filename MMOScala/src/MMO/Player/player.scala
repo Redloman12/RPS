@@ -2,7 +2,7 @@ package MMO.Player
 
 import MMO.SateOfPlayer.state
 
-class player(var x: Int, var y: Int){
+class player(var x: Long, var y: Long){
   var id: String = ""
   var speed: Int = 200
   val width: Int = 50

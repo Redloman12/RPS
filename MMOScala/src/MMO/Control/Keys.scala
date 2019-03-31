@@ -15,9 +15,15 @@ abstract class Keys(person: player) extends EventHandler[KeyEvent]{
     eventtype match{
       case "Pressed" => code.getName match{
         case this.left => person.whenLpressed()
-        case this.right => person.right()
-        case this.up => person.up()
-        case this.down => person.down()
+        case this.right => person.whenRpressed()
+        case this.up => person.whenUppressed()
+        case this.down => person.whenDownpressed()
+      }
+      case "Released" => code.getName match{
+        case this.left => person.whenRreleased()
+        case this.right => person.whenRreleased()
+        case this.up => person.whenUpreleased()
+        case this.down => person.whenDownreleased()
       }
     }
   }

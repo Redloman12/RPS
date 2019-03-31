@@ -2,16 +2,22 @@ package MMO.Gui
 
 class Game {
   def detectcollisions(xC1, yC1, w1, h1, xC2, yC2, w2, h2) {
-    if xC2 + w2 >= xC1 >= xC2 and yC2 + h2 >= yC1 >= yC2
-    return True
-    elif xC2 +w2 >= xC1 + w1 >= xC2 and yC2 + h2 >= yC1 >= yC2:
-    return True
-    elif xC2 +w2 >= xC1 >= xC2 and yC2 + h2 >= yC1 + h1 >= yC2:
-    return True
-    elif xC2 +w2 >= xC1 + w1 >= xC2 and yC2 + h2 >= yC1 + h1 >= yC2:
-    return True
-    else:
-    return False
+    if xC2 + w2 >= xC1 >= xC2 and yC2 + h2 >= yC1 >= yC2{
+      return true
+    }
+    else if xC2 +w2 >= xC1 + w1 >= xC2 and yC2 + h2 >= yC1 >= yC2{
+      return true
+    }
+    else if (xC2 +w2 >= xC1 >= xC2 and yC2 + h2 >= yC1 + h1 >= yC2){
+      return true
+    }
+
+    else if (xC2 +w2 >= xC1 + w1 >= xC2 and yC2 + h2 >= yC1 + h1 >= yC2){
+      return True
+    }
+    else{
+      return False
+    }
   }
 
 
@@ -19,7 +25,6 @@ class Game {
     if (player[5] == 50){
       true
     }
-
     else{
       false
     }
@@ -38,8 +43,6 @@ class Game {
 
   x = detectcollisions(player1.x, player1.y, player1.width, player1.height, player1.x, player1.y, player1.width, player1.height)
   print(x)
-
-
 
 
   def player_choice(player1_choice):  # Register and shows the players choice

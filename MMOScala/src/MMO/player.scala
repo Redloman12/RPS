@@ -1,9 +1,9 @@
 package MMO.Player
-
+import MMO.
 import MMO.SateOfPlayer.state
 
-class player(var x: Long, var y: Long){
-  var id: String = ""
+class player(var x: Int, var y: Int, val id: String){
+  var points: Int = 0
   var speed: Int = 200
   val width: Int = 50
   val height: Int = 50
@@ -31,10 +31,7 @@ class player(var x: Long, var y: Long){
     this.LPressed = true
     this.state.whenDownPressed
   }
-
-  def update(): Unit = {
-  }
-  def draw(): Unit = {
-
+  def isingame: Boolean = {
+    this.state.isingame
   }
 }

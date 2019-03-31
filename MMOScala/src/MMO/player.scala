@@ -67,6 +67,8 @@ class player(var x: Int, var y: Int, val id: String){
     this.y = this.speed
   }
 
+  def releasedleft():
+
   def isingame: Boolean = {
     this.state.isinGame
   }

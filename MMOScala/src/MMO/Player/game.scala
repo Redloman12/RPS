@@ -1,6 +1,4 @@
-package MMO
-
-import MMO.Player.player
+package MMO.Player
 
 object game {
   var FPS: Int = 30
@@ -12,8 +10,15 @@ object game {
     Math.round(random)
   }
 
-  var player: player = new player(findRandom(), 0)
+  var player: player = new player(findRandom(1000, 4000), findRandom(500, 2500))
   var room: Map = new Map(5000, 3000)
   room.generate()
 
+  var camera: Camera = new Camera(0, 0, 0, 0, room.width, room.height)
+  camera.follow(player, 0, 0)
+
+  def update(): Unit = {
+    player.update()
+    camera.update()
+  }
 }

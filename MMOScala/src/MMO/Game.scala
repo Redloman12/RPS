@@ -63,7 +63,7 @@ class Game {
   print("The player2 chose scissors")
 
 
-  def result(player1_choice, player2_choice, player1_score, player2_score):  # Define the game result
+  def result(player1_choice, player2_choice, player1_score, player2_score):  //Define the game result
   if player1_choice == player2_choice:
   return [player1_score + 0.5, player2_score + 0.5]
   elif player1_choice == 1 and player2_choice == 3:
@@ -80,7 +80,7 @@ class Game {
     print("Score:""\nPlayer1:", p1_score, "\nPlayer2:", p2_score)
 
 
-  def validation_input():  # Validates the input
+  def validation_input():  //Validates the input
   while True:
   try:
   user_input = int(input("Put your choice:"))
@@ -97,7 +97,7 @@ class Game {
 
   print('''1 - Rock
   2 - Paper
-  3 - Scissors''')  # Printing the instructions
+  3 - Scissors''')   //Printing the instructions
   human1_score = 0
   human2_score = 0
   while True:  # The condition is not important since the loop will stop on line 68 if the user wishes so

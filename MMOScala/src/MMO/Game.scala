@@ -3,16 +3,16 @@ package MMO.Gui
 class Game {
   def detectcollisions(xC1, yC1, w1, h1, xC2, yC2, w2, h2) {
     if xC2 + w2 >= xC1 >= xC2 and yC2 + h2 >= yC1 >= yC2{
-      return True
+      return true
     }
     else if xC2 +w2 >= xC1 + w1 >= xC2 and yC2 + h2 >= yC1 >= yC2{
-      return True
+      return true
     }
     else if (xC2 +w2 >= xC1 >= xC2 and yC2 + h2 >= yC1 + h1 >= yC2){
-      return True
+      return true
     }
 
-    else if xC2 +w2 >= xC1 + w1 >= xC2 and yC2 + h2 >= yC1 + h1 >= yC2{
+    else if (xC2 +w2 >= xC1 + w1 >= xC2 and yC2 + h2 >= yC1 + h1 >= yC2){
       return True
     }
     else{

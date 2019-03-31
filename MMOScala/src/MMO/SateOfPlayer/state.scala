@@ -9,7 +9,7 @@ abstract class state(person: player) {
   def whenRreleased(): Unit = {}
   def whenUpreleased(): Unit = {}
   def whenDownreleased(): Unit = {}
-  def isinGame(): Unit = {
+  def isinGame: Boolean = {
     false
   }
 }

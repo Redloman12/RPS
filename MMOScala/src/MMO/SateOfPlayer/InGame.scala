@@ -1,6 +1,6 @@
 package MMO.SateOfPlayer
-
-class InGame(person: player) extends state(player) {
+import MMO.Player.player
+class InGame(person: player) extends state(person){
   override def whenLpressed(): Unit ={}
   override def whenRpressed(): Unit ={}
   override def whenUppressed(): Unit ={}
@@ -9,7 +9,7 @@ class InGame(person: player) extends state(player) {
   override def whenRreleased(): Unit = {}
   override def whenUpreleased(): Unit = {}
   override def whenDownreleased(): Unit = {}
-  override def isinGame(): Unit = {
-    True
+  override def isinGame: Boolean = {
+    true
   }
 }

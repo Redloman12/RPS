@@ -1,0 +1,5 @@
+package MMO
+
+class Map {
+
+}

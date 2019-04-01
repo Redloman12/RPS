@@ -13,19 +13,19 @@ class moving(person: player) extends state(person){
     person.up()
   }
   override def whenDownpressed(): Unit ={
-    person.down
+    person.down()
   }
   override def whenLreleased(): Unit = {
-    person.state = new notmoving(person)
+    person.releasedleft()
   }
   override def whenRreleased(): Unit = {
-    person.state = new notmoving(person)
+    person.releasedright()
   }
   override def whenUpreleased(): Unit = {
-    person.state = new notmoving(person)
+    person.releasedup()
   }
   override def whenDownreleased(): Unit = {
-    person.state = new notmoving(person)
+    person.whenDownreleased()
   }
   override def isinGame: Boolean = {
     false

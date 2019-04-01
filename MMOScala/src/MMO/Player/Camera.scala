@@ -18,7 +18,7 @@ class Camera(var xView: Int, var yView: Int, var canvasWidth: Int, var canvasHei
     this.yDeadZone = yDeadZone
   }
 
-  def update(): Unit ={
-    if ()
-  }
+//  def update(): Unit ={
+//    if ()
+//  }
 }

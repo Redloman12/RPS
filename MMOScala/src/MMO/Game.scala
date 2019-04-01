@@ -1,24 +1,17 @@
 package MMO.Gui
 
-class Game {
-  def detectcollisions(xC1, yC1, w1, h1, xC2, yC2, w2, h2) {
-    if xC2 + w2 >= xC1 >= xC2 and yC2 + h2 >= yC1 >= yC2{
-      return true
-    }
-    else if xC2 +w2 >= xC1 + w1 >= xC2 and yC2 + h2 >= yC1 >= yC2{
-      return true
-    }
-    else if (xC2 +w2 >= xC1 >= xC2 and yC2 + h2 >= yC1 + h1 >= yC2){
-      return true
-    }
+import MMO.physics.World
 
-    else if (xC2 +w2 >= xC1 + w1 >= xC2 and yC2 + h2 >= yC1 + h1 >= yC2){
-      return True
-    }
-    else{
-      return False
-    }
-  }
+class Game {
+  val world = new World(0)
+
+  def player_choice(player1_choice):  # Register and shows the players choice
+  if player1_choice == 1:
+    print("The player1 chose rock")
+  elif player1_choice == 2:
+  print("The player1 chose paper")
+  else:
+  print("The player1 chose scissors")
 
 
   def isWinner(player): Unit ={
@@ -100,7 +93,7 @@ class Game {
   3 - Scissors''')   //Printing the instructions
   human1_score = 0
   human2_score = 0
-  while True:  # The condition is not important since the loop will stop on line 68 if the user wishes so
+  while True:  //The condition is not important since the loop will stop on line 68 if the user wishes so
     player1 = validation_input()
   player_choice(player1)
   ai = random.randint(1, 3)

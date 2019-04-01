@@ -1,18 +1,21 @@
 package MMO.Player
-import MMO.SateOfPlayer.{notmoving, state}
+import MMO.SateOfPlayer.{moving, state}
+import MMO.physics.{PhysicalObject, PhysicsVector}
 
-class player(var x: Int, var y: Int, val id: String){
+class player(Location: PhysicsVector, velocity: PhysicsVector) extends PhysicalObject(Location, velocity){
   var points: Int = 0
   var speed: Int = 200
   val width: Int = 50
   val height: Int = 50
 
-  var state: state = new notmoving(this)
+  var state: state = new moving(this)
 
   var LPressed = false
   var Rpressed = false
   var UpPressed = false
   var DownPressed = false
+
+  var Choice = 5
 
   def whenLpressed(): Unit ={
     this.LPressed = true
@@ -54,20 +57,32 @@ class player(var x: Int, var y: Int, val id: String){
     this.state.whenDownreleased()
   }
   def left(): Unit = {
-    this.x = -this.speed
+    this.velocity.x = -this.speed
   }
   def right(): Unit = {
-    this.x = this.speed
+    this.velocity.x = this.speed
   }
 
   def up(): Unit={
-    this.y = -this.speed
+    this.velocity.y = -this.speed
   }
   def down(): Unit ={
-    this.y = this.speed
+    this.velocity.y = this.speed
   }
 
-  def releasedleft():
+  def releasedleft(): Unit ={
+    this.velocity.x = 0
+  }
+  def releasedright(): Unit={
+    this.velocity.x = 0
+  }
+
+  def releasedup(): Unit={
+    this.velocity.y = 0
+  }
+  def releaseddown(): Unit={
+    this.velocity.y = 0
+  }
 
   def isingame: Boolean = {
     this.state.isinGame

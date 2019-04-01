@@ -73,54 +73,42 @@ object DesktopAppGUI extends JFXApp {
         layoutY = 500
         minWidth = 120
         minHeight = 40
-        onAction = (event: ActionEvent) => game.player1.Choice = 1
       }
       val buttonP = new Button("Paper") {
         layoutX = 580
         layoutY = 500
         minWidth = 120
         minHeight = 40
-        onAction = (event: ActionEvent) => game.player1.Choice = 2
       }
       val buttonS = new Button("Scissors") {
         layoutX = 780
         layoutY = 500
         minWidth = 120
         minHeight = 40
-        onAction = (event: ActionEvent) => game.player1.Choice = 3
       }
 
 
-      val testR = new Button("Enemy Picks Rock") {
+      val testR = new Button("Rock") {
         layoutX = 380
         layoutY = 100
         minWidth = 120
         minHeight = 40
-        onAction = (event: ActionEvent) => game.player2.Choice = 1// replace
+        onAction = (event: ActionEvent) => print(1+1) // replace
       }
-      val testP = new Button("Enemy Picks Paper") {
+      val testP = new Button("Paper") {
         layoutX = 580
         layoutY = 100
         minWidth = 120
         minHeight = 40
-        onAction = (event: ActionEvent) => game.player2.Choice = 2 //  replace
+        onAction = (event: ActionEvent) => print(1+1) //  replace
       }
-      val testS = new Button("Enemy Picks Scissors") {
+      val testS = new Button("Scissors") {
         layoutX = 780
         layoutY = 100
         minWidth = 120
         minHeight = 40
-        onAction = (event: ActionEvent) => game.player2.Choice = 3 // replace
+        onAction = (event: ActionEvent) => print(1+1) // replace
       }
-      val testnow = new Button("Match") {
-        layoutX = 780
-        layoutY = 200
-        minWidth = 120
-        minHeight = 40
-        onAction = (event: ActionEvent) => game.RPS(game.player1, game.player2) // replace
-        onAction = (event: ActionEvent) => score.text = game.player1.points.toString
-      }
-
 
 
       val timer = new Text("RPS Countdown: 10") {
@@ -129,8 +117,8 @@ object DesktopAppGUI extends JFXApp {
         font = new Font(24)
       }
 
-      var playerscore = game.player1.points
-      val score = new Text("Score: " + playerscore.toString) {
+
+      val score = new Text("Score: 0") {
         layoutX = 600
         layoutY = 640
         font = new Font(20)
@@ -145,7 +133,7 @@ object DesktopAppGUI extends JFXApp {
 
 
       def enterGame(): Unit = {
-        content = List(player, buttonR, buttonP, buttonS, timer, position, score, testR, testP, testS, testnow)
+        content = List(player, buttonR, buttonP, buttonS, timer, position, score, testR, testP, testS)
         fill = DarkGray
       }
 

@@ -1,4 +1,4 @@
-package MMO.Player
+package view
 
 class Rectangle(left: Int, top: Int, width: Int, height: Int) {
 //  var right: Int = this.left + this.width

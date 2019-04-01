@@ -1,11 +1,19 @@
 package model
 
-import MMO.physics.World
+import MMO.physics.{Physics, PhysicsVector, World}
 
 class Game {
   val world = new World(0)
 
+  val player1 = new player(
+    new PhysicsVector(0, 0),
+    new PhysicsVector(0, 0)
+  )
 
+  world.objects=List(player1)
+  def updatePosition(Time: Double): Unit ={
+    Physics.updateWorld(this.world, Time)
+  }
 //  def player_choice(player1_choice: Int) {
 //    //Register and shows the players choice//
 //    if (player1_choice == 1) {

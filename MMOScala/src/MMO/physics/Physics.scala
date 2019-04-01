@@ -4,10 +4,15 @@ import java.awt.geom.Line2D
 
 object Physics {
   def updateWorld(world: World, deltaTime: Double): Unit ={
-    var r: Int = 0
+    var C: Boolean = false
     for (i <-world.objects){
-      r = 0
-      if (r == 0){
+      val location = computePotentialLocation(i, deltaTime)
+      for(boundary<-world.boundaries){
+        if (detectCollision(i,location,boundary)){
+          C = true
+        }
+      }
+      if (C == false){
         i.location = computePotentialLocation(i, deltaTime)
       }
     }

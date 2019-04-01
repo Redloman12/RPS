@@ -9,6 +9,15 @@ class InGame(person: player) extends state(person){
   override def whenRreleased(): Unit = {}
   override def whenUpreleased(): Unit = {}
   override def whenDownreleased(): Unit = {}
+  override def whenRockPressed(): Unit={
+    person.Rock()
+  }
+  override def whenPaperPressed(): Unit={
+    person.Paper()
+  }
+  override def whenScizzorsPressed(): Unit={
+    person.scizzors()
+  }
   override def isinGame: Boolean = {
     true
   }

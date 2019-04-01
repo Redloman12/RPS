@@ -9,6 +9,9 @@ abstract class state(person: player) {
   def whenRreleased(): Unit = {}
   def whenUpreleased(): Unit = {}
   def whenDownreleased(): Unit = {}
+  def whenRockPressed(): Unit={}
+  def whenPaperPressed(): Unit=()
+  def whenScizzorsPressed(): Unit=()
   def isinGame: Boolean = {
     false
   }

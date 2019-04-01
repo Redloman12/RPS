@@ -9,7 +9,34 @@ class Game {
     new PhysicsVector(0, 0),
     new PhysicsVector(0, 0)
   )
+  val player2 = new player(
+    new PhysicsVector(0,0),
+    new PhysicsVector(0,0)
+  )
 
+  def RPS(p1: player, p2: player): String ={
+    if(p1.Choice == 1 && p2.Choice == 3){
+      "player 1"
+    }
+    else if(p1.Choice == 2 && p2.Choice == 1){
+      "player 1"
+    }
+    else if(p1.Choice == 3 && p2.Choice == 2){
+      "player 1"
+    }
+    else if(p2.Choice == 1 && p1.Choice == 3){
+      "player 2"
+    }
+    else if(p2.Choice == 2 && p1.Choice == 1){
+      "Player 2"
+    }
+    else if(p2.Choice == 3 && p1.Choice == 2){
+      "player 2"
+    }
+    else{
+      "tie"
+    }
+  }
   world.objects=List(player1)
   def updatePosition(Time: Double): Unit ={
     Physics.updateWorld(this.world, Time)
@@ -28,7 +55,7 @@ class Game {
 //      print("The player1 chose scissors")
 //    }
 //  }
-//
+
 //  def player_choice(player1_choice): Unit ={
 //    if (player1_choice == 1){
 //      println("The player1 chose rock")
@@ -40,7 +67,6 @@ class Game {
 //      print("The player1 chose scissors")
 //    }
 //  }  //Register and shows the players choice
-//
 //
 //
 //  def player2_choice(player2_choice): Unit ={

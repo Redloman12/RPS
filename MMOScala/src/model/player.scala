@@ -59,6 +59,15 @@ class player(Location: PhysicsVector, velocity: PhysicsVector) extends PhysicalO
     this.LPressed = false
     this.state.whenDownreleased()
   }
+  def whenRockPressed(): Unit = {
+    this.state.whenRockPressed
+  }
+  def whenPaperPressed(): Unit = {
+    this.state.whenPaperPressed
+  }
+  def whenScizzorsPressed(): Unit ={
+    this.state.whenScizzorsPressed
+  }
   def left(): Unit = {
     this.velocity.x = -this.speed
   }
@@ -85,6 +94,16 @@ class player(Location: PhysicsVector, velocity: PhysicsVector) extends PhysicalO
   }
   def releaseddown(): Unit={
     this.velocity.y = 0
+  }
+
+  def Rock(): Unit ={
+    this.Choice = 1
+  }
+  def Paper(): Unit = {
+    this.Choice = 2
+  }
+  def scizzors(): Unit = {
+    this.Choice = 3
   }
 
   def isingame: Boolean = {

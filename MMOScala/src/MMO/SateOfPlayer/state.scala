@@ -1,5 +1,5 @@
 package MMO.SateOfPlayer
-import MMO.Player.player
+import model.player
 abstract class state(person: player) {
   def whenLpressed(): Unit ={}
   def whenRpressed(): Unit ={}

@@ -1,16 +1,15 @@
 package Desktop.view
 
-import scalafx.Includes._
 import javafx.event.ActionEvent
 import model.Map
 import scalafx.application
 import scalafx.application.JFXApp
 import scalafx.scene.Scene
-import scalafx.scene.text.{Font, Text, TextAlignment}
 import scalafx.scene.control._
 import scalafx.scene.paint.Color._
 import scalafx.scene.shape.Rectangle
 import scalafx.scene.text.TextAlignment._
+import scalafx.scene.text.{Font, Text}
 
 object DesktopAppGUI extends JFXApp {
   stage = new application.JFXApp.PrimaryStage {

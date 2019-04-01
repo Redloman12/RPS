@@ -6,7 +6,7 @@ import MMO.physics._
 
 
 class player(Location: PhysicsVector, velocity: PhysicsVector) extends PhysicalObject(Location, velocity){
-  var points: Int = 0
+  var points: Double = 0
   var speed: Int = 200
   val width: Int = 50
   val height: Int = 50

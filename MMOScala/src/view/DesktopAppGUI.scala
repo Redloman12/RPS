@@ -1,7 +1,8 @@
 package Desktop.view
 
 import javafx.event.ActionEvent
-import model.Map
+import javafx.scene.input.{KeyCode, KeyEvent}
+import model.{Game, Map}
 import scalafx.application
 import scalafx.application.JFXApp
 import scalafx.scene.Scene
@@ -12,6 +13,7 @@ import scalafx.scene.text.TextAlignment._
 import scalafx.scene.text.{Font, Text}
 
 object DesktopAppGUI extends JFXApp {
+  val game = new Game()
   stage = new application.JFXApp.PrimaryStage {
     title.value = "Test"
     scene = new Scene(1280, 720) {
@@ -120,11 +122,20 @@ object DesktopAppGUI extends JFXApp {
         minHeight = 40
         onAction = (event: ActionEvent) => enterGame()
       }
-
-
+      def keyPressed(keyCode: KeyCode): Unit = {
+        keyCode.getName match {
+          case "W" => game.player1.location.y += 1 // INPUT SHIT GOES HERE RYAN
+          case "A" => game.player1.location.x -= 1 // INPUT SHIT GOES HERE RYAN
+          case "S" => game.player1.location.y -= 1 // INPUT SHIT GOES HERE RYAN
+          case "D" => game.player1.location.x += 1 // INPUT SHIT GOES HERE RYAN
+          case _ => println(keyCode.getName + " pressed with no action")
+        }
+        position.text = "X: " + game.player1.location.x.toString() + " Y: "+ game.player1.location.y.toString()
+      }
 
       content = List(title, hint, usernametext, username, passwordtext, password, enter)
 
+      addEventHandler(KeyEvent.KEY_PRESSED, (event: KeyEvent) => keyPressed(event.getCode))
     }
   }
 }

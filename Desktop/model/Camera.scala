@@ -1,4 +1,4 @@
-package view
+package model
 
 class Camera(var xView: Int, var yView: Int, var canvasWidth: Int, var canvasHeight: Int, var worldWidth: Int, var worldHeight: Int) {
   var xDeadZone: Int = 0

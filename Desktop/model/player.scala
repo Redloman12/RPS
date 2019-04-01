@@ -1,4 +1,9 @@
-package view
+package model
+
+import MMO.SateOfPlayer._
+import MMO.physics._
+
+
 
 class player(Location: PhysicsVector, velocity: PhysicsVector) extends PhysicalObject(Location, velocity){
   var points: Int = 0

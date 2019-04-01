@@ -7,13 +7,6 @@ object Physics {
     var r: Int = 0
     for (i <-world.objects){
       r = 0
-      updateVelocity(i, world, deltaTime)
-      for (b <- world.boundaries) {
-        if (detectCollision(i, computePotentialLocation(i, deltaTime),b)){
-          i.location.z = computePotentialLocation(i, deltaTime).z
-          r = 1
-        }
-      }
       if (r == 0){
         i.location = computePotentialLocation(i, deltaTime)
       }
@@ -21,22 +14,12 @@ object Physics {
   }
 
   def computePotentialLocation(Object: PhysicalObject, deltaTime: Double): PhysicsVector = {
-    var Vector = new PhysicsVector(0.0, 0.0, 0.0)
+    var Vector = new PhysicsVector(0.0, 0.0)
     Vector.x=Object.location.x+Object.velocity.x*deltaTime
     Vector.y=Object.location.y+Object.velocity.y*deltaTime
-    Vector.z=Object.location.z+Object.velocity.z*deltaTime
-    if (Vector.z<0){
-      Vector.z = 0.0
-    }
     Vector
   }
 
-  def updateVelocity(Object: PhysicalObject, world: World, deltaTime: Double): Unit ={
-    Object.velocity.z = Object.velocity.z - world.gravity*deltaTime
-    if ((Object.location.z == 0) && (Object.velocity.z < 0)){
-      Object.velocity.z = 0.0
-    }
-  }
   def detectCollision(Object: PhysicalObject, Vector: PhysicsVector, wall: Boundary ): Boolean ={
     var x1 = Object.location.x
     var y1 = Object.location.y

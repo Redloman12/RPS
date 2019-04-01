@@ -2,7 +2,7 @@ package MMO.Control
 
 import javafx.event.EventHandler
 import javafx.scene.input.KeyEvent
-import MMO.Player._
+import model.player
 
 abstract class Keys(person: player) extends EventHandler[KeyEvent] {
   val left: String

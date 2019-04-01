@@ -1,15 +1,15 @@
 package Desktop.view
 
-import scalafx.Includes._
 import javafx.event.ActionEvent
+import model.Map
 import scalafx.application
 import scalafx.application.JFXApp
 import scalafx.scene.Scene
-import scalafx.scene.text.{Font, Text, TextAlignment}
 import scalafx.scene.control._
 import scalafx.scene.paint.Color._
 import scalafx.scene.shape.Rectangle
-import scalafx.scene.text.TextAlignment.Center
+import scalafx.scene.text.TextAlignment._
+import scalafx.scene.text.{Font, Text}
 
 object DesktopAppGUI extends JFXApp {
   stage = new application.JFXApp.PrimaryStage {
@@ -19,6 +19,9 @@ object DesktopAppGUI extends JFXApp {
 
       fill = White
 
+      var map: Map = new Map(5000, 3000)
+
+      val gridTexture: List[Rectangle] = map.generate()
 
       val title = new Text(420, 200, "Welcome to RPS Battle Royale!") {
         textAlignment = Center
@@ -117,6 +120,7 @@ object DesktopAppGUI extends JFXApp {
         minHeight = 40
         onAction = (event: ActionEvent) => enterGame()
       }
+
 
 
       content = List(title, hint, usernametext, username, passwordtext, password, enter)

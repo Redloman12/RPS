@@ -73,18 +73,21 @@ object DesktopAppGUI extends JFXApp {
         layoutY = 500
         minWidth = 120
         minHeight = 40
+        onAction = (event: ActionEvent) => game.player1.Choice = 1
       }
       val buttonP = new Button("Paper") {
         layoutX = 580
         layoutY = 500
         minWidth = 120
         minHeight = 40
+        onAction = (event: ActionEvent) => game.player1.Choice = 2
       }
       val buttonS = new Button("Scissors") {
         layoutX = 780
         layoutY = 500
         minWidth = 120
         minHeight = 40
+        onAction = (event: ActionEvent) => game.player1.Choice = 3
       }
 
 

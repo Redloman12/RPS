@@ -1,20 +1,25 @@
-package MMO.Gui
+package model
 
 import MMO.physics.World
+import model.player
 
 class Game {
   val world = new World(0)
 
-  def player_choice(player1_choice):  # Register and shows the players choice
-  if player1_choice == 1:
-    print("The player1 chose rock")
-  elif player1_choice == 2:
-  print("The player1 chose paper")
-  else:
-  print("The player1 chose scissors")
+  def player_choice(player1_choice: Int) {
+    //Register and shows the players choice//
+    if (player1_choice == 1) {
+      print("The player1 chose rock")
+    }
+    else if (player1_choice == 2){
+      print("The player1 chose paper")
+    }
+    else {
+      print("The player1 chose scissors")
+    }
+  }
 
-
-  def isWinner(player): Unit ={
+  def isWinner(player: player): Boolean ={
     if (player[5] == 50){
       true
     }
@@ -25,13 +30,15 @@ class Game {
 
 
 
-  def number(Player):
-  return Player[0]
+  def number(Player: player) {
+    return Player[0]
+  }
 
 
-  def ranking(Playerlist):
-  Playerlist.sort(key=number)
-  return Playerlist
+  def ranking(Playerlist: List[player]) {
+    Playerlist.sort(key = number)
+    return Playerlist
+  }
 
 
   x = detectcollisions(player1.x, player1.y, player1.width, player1.height, player1.x, player1.y, player1.width, player1.height)

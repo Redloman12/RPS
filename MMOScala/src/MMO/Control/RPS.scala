@@ -2,7 +2,7 @@ package MMO.Control
 
 import java.awt.event.ActionEvent
 
-import MMO.Gui.Game
+import model.Game
 import scalafx.scene.control.Button
 
 class RPS(game: Game, xaxis: Double, yaxis: Double) extends Button{

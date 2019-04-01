@@ -16,5 +16,9 @@ def home():
     else:
         return render_template('intro.html')
 
+@app.route('/game.html')
+def gaming():
+    return render_template('game.html')
+
 if __name__ == '__main__':
     app.run(debug=True)

@@ -6,7 +6,7 @@ import MMO.physics._
 
 
 class player(Location: PhysicsVector, velocity: PhysicsVector) extends PhysicalObject(Location, velocity){
-  var points: Int = 0
+  var points: Double = 0
   var speed: Int = 200
   val width: Int = 50
   val height: Int = 50
@@ -18,7 +18,7 @@ class player(Location: PhysicsVector, velocity: PhysicsVector) extends PhysicalO
   var UpPressed = false
   var DownPressed = false
 
-  var Choice = 5
+  var Choice = 0
 
   def whenLpressed(): Unit ={
     this.LPressed = true
@@ -41,22 +41,22 @@ class player(Location: PhysicsVector, velocity: PhysicsVector) extends PhysicalO
   }
 
   def whenLreleased(): Unit ={
-    this.LPressed = true
+    this.LPressed = false
     this.state.whenLreleased()
   }
 
   def whenRreleased(): Unit = {
-    this.LPressed = true
+    this.LPressed = false
     this.state.whenRreleased()
   }
 
   def whenUpreleased(): Unit = {
-    this.LPressed = true
+    this.LPressed = false
     this.state.whenUpreleased()
   }
 
   def whenDownreleased(): Unit = {
-    this.LPressed = true
+    this.LPressed = false
     this.state.whenDownreleased()
   }
   def left(): Unit = {

@@ -13,7 +13,6 @@ class player(Location: PhysicsVector, velocity: PhysicsVector) extends PhysicalO
 
   var state: state = new moving(this)
 
-
   var Choice = 0
 
   def whenLpressed(): Unit ={
@@ -27,6 +26,9 @@ class player(Location: PhysicsVector, velocity: PhysicsVector) extends PhysicalO
   def whenUppressed(): Unit = {
     this.state.whenUppressed()
   }
+  def whenDownpressed(): Unit ={
+    this.state.whenDownpressed()
+  }
 
   def whenRockPressed(): Unit = {
     this.state.whenRockPressed
@@ -38,17 +40,17 @@ class player(Location: PhysicsVector, velocity: PhysicsVector) extends PhysicalO
     this.state.whenScizzorsPressed
   }
   def left(): Unit = {
-    this.velocity.x = -this.speed
+    this.location.x -= 0.5
   }
   def right(): Unit = {
-    this.velocity.x = this.speed
+    this.location.x += 0.5
   }
 
   def up(): Unit={
-    this.velocity.y = -this.speed
+    this.location.y += 0.5
   }
   def down(): Unit ={
-    this.velocity.y = this.speed
+    this.location.y -= 0.5
   }
 
   def Rock(): Unit ={

@@ -87,37 +87,6 @@ object DesktopAppGUI extends JFXApp {
         minHeight = 40
       }
 
-
-      val testR = new Button("Rock") {
-        layoutX = 380
-        layoutY = 100
-        minWidth = 120
-        minHeight = 40
-        onAction = (event: ActionEvent) => print(1+1) // replace
-      }
-      val testP = new Button("Paper") {
-        layoutX = 580
-        layoutY = 100
-        minWidth = 120
-        minHeight = 40
-        onAction = (event: ActionEvent) => print(1+1) //  replace
-      }
-      val testS = new Button("Scissors") {
-        layoutX = 780
-        layoutY = 100
-        minWidth = 120
-        minHeight = 40
-        onAction = (event: ActionEvent) => print(1+1) // replace
-      }
-
-
-      val timer = new Text("RPS Countdown: 10") {
-        layoutX = 530
-        layoutY = 100
-        font = new Font(24)
-      }
-
-
       val score = new Text("Score: 0") {
         layoutX = 600
         layoutY = 640
@@ -133,7 +102,7 @@ object DesktopAppGUI extends JFXApp {
 
 
       def enterGame(): Unit = {
-        content = List(player, buttonR, buttonP, buttonS, timer, position, score, testR, testP, testS)
+        content = List(player, buttonR, buttonP, buttonS, position, score)
         fill = DarkGray
       }
 

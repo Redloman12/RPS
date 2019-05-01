@@ -5,7 +5,7 @@ import scalafx.scene.shape.Rectangle
 
 import scala.collection.mutable.ListBuffer
 
-class Map{
+class GameMap{
   var gridWidth: Int = 44
   var gridHeight: Int = 44
 }

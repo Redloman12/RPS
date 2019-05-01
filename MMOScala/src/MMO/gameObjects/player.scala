@@ -1,4 +1,4 @@
-package model
+package MMO.gameObjects
 
 import MMO.SateOfPlayer._
 import MMO.physics._

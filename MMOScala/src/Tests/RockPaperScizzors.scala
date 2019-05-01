@@ -1,7 +1,8 @@
 package Tests
 
+import MMO.gameObjects.player
 import MMO.physics.PhysicsVector
-import model.{Game, player}
+import model.Game
 import org.scalatest.FunSuite
 
 class RockPaperScizzors extends FunSuite {

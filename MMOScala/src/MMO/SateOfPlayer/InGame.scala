@@ -1,5 +1,7 @@
 package MMO.SateOfPlayer
-import model.player
+
+import MMO.gameObjects.player
+
 class InGame(person: player) extends state(person){
   override def whenLpressed(): Unit ={}
   override def whenRpressed(): Unit ={}

@@ -1,5 +1,6 @@
 package model
 
+import MMO.gameObjects.player
 import MMO.physics.{Physics, PhysicsVector, World}
 
 class Game {

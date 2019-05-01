@@ -2,7 +2,7 @@ package Desktop.view
 
 import javafx.event.ActionEvent
 import javafx.scene.input.{KeyCode, KeyEvent}
-import model.{Game, Map}
+import model.{Game, GameMap}
 import scalafx.application
 import scalafx.application.JFXApp
 import scalafx.scene.Scene
@@ -21,7 +21,7 @@ object DesktopAppGUI extends JFXApp {
 
       fill = White
 
-      var map: Map = new Map(5000, 3000)
+      var map: GameMap = new GameMap(5000, 3000)
 
       val gridTexture: List[Rectangle] = map.generate()
 

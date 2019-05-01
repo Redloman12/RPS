@@ -1,20 +1,21 @@
 package model
 
+import MMO.gameObjects.{Player2, player}
 import play.api.libs.json.{JsValue, Json}
 import MMO.physics._
 
 class Game2 {
-  val world: World = new World(10)
+  val world: World = new World(0)
 
-  var level: Map = new Map()
+  var level: GameMap = new GameMap()
 
-  var players: Map[String, player] = Map()
+  var players: Map[String, Player2] = Map()
   val playerSize: Double = 0.3
 
   var lastUpdateTime: Long = System.nanoTime()
 
 
-  def loadLevel(newLevel: Map): Unit = {
+  def loadLevel(newLevel: GameMap): Unit = {
     world.boundaries = List()
     level = newLevel
 
@@ -61,7 +62,6 @@ class Game2 {
     val time: Long = System.nanoTime()
     val dt = (time - this.lastUpdateTime) / 1000000000.0
     Physics.updateWorld(this.world, dt)
-    projectiles = projectiles.filter(po => !po.destroyed)
     this.lastUpdateTime = time
   }
 

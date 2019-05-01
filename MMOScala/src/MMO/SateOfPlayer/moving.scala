@@ -1,6 +1,6 @@
 package MMO.SateOfPlayer
 
-import model.player
+import MMO.gameObjects.player
 
 class moving(person: player) extends state(person){
   override def whenLpressed(): Unit ={

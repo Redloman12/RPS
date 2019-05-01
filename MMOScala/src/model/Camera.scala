@@ -1,5 +1,6 @@
 package model
 
+import MMO.gameObjects.player
 import com.sun.javafx.geom.Rectangle
 
 class Camera(var xView: Int, var yView: Int, var canvasWidth: Int, var canvasHeight: Int, var worldWidth: Int, var worldHeight: Int) {

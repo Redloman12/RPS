@@ -1,8 +1,8 @@
 package MMO.SateOfPlayer
 
-import MMO.gameObjects.player
+import MMO.gameObjects.{Player2, player}
 
-class InGame(person: player) extends state(person){
+class InGame(person: Player2) extends state(person){
   override def whenLpressed(): Unit ={}
   override def whenRpressed(): Unit ={}
   override def whenUppressed(): Unit ={}

@@ -1,8 +1,8 @@
 package MMO.SateOfPlayer
 
-import MMO.gameObjects.player
+import MMO.gameObjects.{Player2, player}
 
-abstract class state(person: player) {
+abstract class state(person: Player2) {
   def whenLpressed(): Unit ={}
   def whenRpressed(): Unit ={}
   def whenUppressed(): Unit ={}

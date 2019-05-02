@@ -1,8 +1,8 @@
 package MMO.SateOfPlayer
 
-import MMO.gameObjects.player
+import MMO.gameObjects.{Player2, player}
 
-class moving(person: player) extends state(person){
+class moving(person: Player2) extends state(person){
   override def whenLpressed(): Unit ={
     person.left()
   }

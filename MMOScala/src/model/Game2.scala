@@ -22,7 +22,6 @@ class Game2 {
 
     blockTile(0, 0, level.gridWidth, level.gridHeight)
 
-    level.wallLocations.foreach(wall => placeWall(wall.x, wall.y))
     players.values.foreach(player => player.location = startingVector())
 
   }
@@ -70,13 +69,12 @@ class Game2 {
     val gameState: Map[String, JsValue] = Map(
       "gridSize" -> Json.toJson(Map("x" -> level.gridWidth, "y" -> level.gridHeight)),
       "players" -> Json.toJson(this.players.map({ case (k, v) => Json.toJson(Map(
-        "x" -> Json.toJson(v.Location.x),
-        "y" -> Json.toJson(v.Location.y),
+        "x" -> Json.toJson(v.location.x),
+        "y" -> Json.toJson(v.location.y),
         "v_x" -> Json.toJson(v.velocity.x),
         "v_y" -> Json.toJson(v.velocity.y),
-        "points" -> Json.toJson(v.points),
-        "state" -> Json.toJson(v.state),
-        "width" -> Json.toJson(v.width),
+        "points" -> Json.toJson(v.score),
+        "speed" -> Json.toJson(v.speed),
         "id" -> Json.toJson(k))) }))
       )
 

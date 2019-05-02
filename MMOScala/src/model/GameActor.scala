@@ -10,13 +10,6 @@ class GameActor extends Actor {
   var towers: List[ActorRef] = List()
 
   val game: Game2 = new Game2()
-  var levelNumber = 0
-  loadLevel(levelNumber)
-
-  def loadLevel(levelNumber: Int): Unit ={
-    val level = Map(levelNumber)
-    game.loadLevel(level)
-  }
 
   override def receive: Receive = {
     case message: AddPlayer => game.addPlayer(message.username)
@@ -29,8 +22,7 @@ class GameActor extends Actor {
     case SendGameState => sender() ! GameState(game.gameState())
 
     case levelMessage: LoadLevel =>
-      val level = Level(levelMessage.levelNumber)
-      game.loadLevel(level)
+      game.loadLevel(new GameMap())
   }
 }
 

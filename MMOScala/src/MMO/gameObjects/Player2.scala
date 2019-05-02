@@ -2,7 +2,12 @@ package MMO.gameObjects
 
 import MMO.physics._
 
-class Player2(Location: PhysicsVector, velocity: PhysicsVector) extends PhysicalObject(Location, velocity) {
+class Player2(Location: PhysicsVector, Velocity: PhysicsVector) extends PhysicalObject(Location, Velocity) {
+
+  var speed = 4.0
+  var score: Double = 0.0
+
+  var choice: Int = 0
 
   def move(direction: PhysicsVector){
     val normalDirection = direction.normal2d()

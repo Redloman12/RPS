@@ -1,7 +1,7 @@
 package model
 
-import akka.actor.{Actor, ActorRef, ActorSystem, Props}
-import akka.io.{IO, Tcp}
+import akka.actor._
+import akka.io._
 import akka.util.ByteString
 import play.api.libs.json.{JsValue, Json}
 

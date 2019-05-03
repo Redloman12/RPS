@@ -15,6 +15,7 @@ function parseGameState(event) {
 
     for (let player of gameState['players']) {
         placeCircle(player['x'], player['y'], player['id'] === socket.id ? '#ffff00' : '#56bcff', 2.0);
+        updateScore(player["points"])
     }
 
 }
@@ -67,6 +68,11 @@ function placeCircle(x, y, color, size) {
     context.fill();
     context.strokeStyle = 'black';
     context.stroke();
+}
+
+function updateScore(points){
+    var score = document.getElementById("score")
+    score.value = points
 }
 
 function xComp(degrees){

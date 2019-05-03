@@ -1,6 +1,6 @@
 package MMO.gameObjects
 
-import MMO.SateOfPlayer.{InGame, moving, state}
+//import MMO.SateOfPlayer.{InGame, moving, state}
 import MMO.physics._
 import model.Database
 

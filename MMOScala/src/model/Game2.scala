@@ -1,8 +1,9 @@
 package model
 
-import MMO.gameObjects.{Player2, player}
+import MMO.gameObjects.{Player2}
 import play.api.libs.json.{JsValue, Json}
 import MMO.physics._
+import Database._
 
 class Game2 {
   val world: World = new World(0)
@@ -28,7 +29,7 @@ class Game2 {
 
 
   def addPlayer(id: String): Unit = {
-    val player = new player(startingVector(), new PhysicsVector(0, 0))
+    val player = new Player2(startingVector(), new PhysicsVector(0, 0))
     players += (id -> player)
     world.objects = player :: world.objects
   }
@@ -62,6 +63,10 @@ class Game2 {
     val dt = (time - this.lastUpdateTime) / 1000000000.0
     Physics.updateWorld(this.world, dt)
     this.lastUpdateTime = time
+    for (p <- players.keys){
+      val player = players(p)
+      saveGame(p, player.score, player.location.x, player.location.y, player.velocity.x, player.velocity.y, player.inGame)
+    }
   }
 
 
@@ -75,6 +80,7 @@ class Game2 {
         "v_y" -> Json.toJson(v.velocity.y),
         "points" -> Json.toJson(v.score),
         "speed" -> Json.toJson(v.speed),
+        "in_game" -> Json.toJson(v.inGame),
         "id" -> Json.toJson(k))) }))
       )
 

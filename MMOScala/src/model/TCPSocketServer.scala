@@ -1,5 +1,7 @@
 package model
 
+import java.net.InetSocketAddress
+
 import akka.actor._
 import akka.io._
 import akka.util.ByteString

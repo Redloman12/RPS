@@ -1,121 +1,121 @@
-package model
-
-import MMO.gameObjects.player
-import MMO.physics.{Physics, PhysicsVector, World}
-
-class Game {
-  val world = new World(0)
-
-  val player1 = new player(
-    new PhysicsVector(0, 0),
-    new PhysicsVector(0, 0)
-  )
-  val player2 = new player(
-    new PhysicsVector(0,0),
-    new PhysicsVector(0,0)
-  )
-
-  def RPS(p1: player, p2: player): String ={
-    if(p1.Choice == 1 && p2.Choice == 3){
-      "player 1"
-    }
-    else if(p1.Choice == 2 && p2.Choice == 1){
-      "player 1"
-    }
-    else if(p1.Choice == 3 && p2.Choice == 2){
-      "player 1"
-    }
-    else if(p2.Choice == 1 && p1.Choice == 3){
-      "player 2"
-    }
-    else if(p2.Choice == 2 && p1.Choice == 1){
-      "Player 2"
-    }
-    else if(p2.Choice == 3 && p1.Choice == 2){
-      "player 2"
-    }
-    else{
-      "tie"
-    }
-  }
-  world.objects=List(player1)
-  def updatePosition(Time: Double): Unit ={
-    Physics.updateWorld(this.world, Time)
-  }
-
-
-//  def player_choice(player1_choice: Int) {
-//    //Register and shows the players choice//
-//    if (player1_choice == 1) {
-//      print("The player1 chose rock")
+//package model
+//
+//import MMO.gameObjects.player
+//import MMO.physics.{Physics, PhysicsVector, World}
+//
+//class Game {
+//  val world = new World(0)
+//
+//  val player1 = new player(
+//    new PhysicsVector(0, 0),
+//    new PhysicsVector(0, 0)
+//  )
+//  val player2 = new player(
+//    new PhysicsVector(0,0),
+//    new PhysicsVector(0,0)
+//  )
+//
+//  def RPS(p1: player, p2: player): String ={
+//    if(p1.Choice == 1 && p2.Choice == 3){
+//      "player 1"
 //    }
-//    else if (player1_choice == 2){
-//      print("The player1 chose paper")
+//    else if(p1.Choice == 2 && p2.Choice == 1){
+//      "player 1"
 //    }
-//    else {
-//      print("The player1 chose scissors")
+//    else if(p1.Choice == 3 && p2.Choice == 2){
+//      "player 1"
+//    }
+//    else if(p2.Choice == 1 && p1.Choice == 3){
+//      "player 2"
+//    }
+//    else if(p2.Choice == 2 && p1.Choice == 1){
+//      "Player 2"
+//    }
+//    else if(p2.Choice == 3 && p1.Choice == 2){
+//      "player 2"
+//    }
+//    else{
+//      "tie"
 //    }
 //  }
-
-//  def player_choice(player1_choice): Unit ={
-//    if (player1_choice == 1){
-//      println("The player1 chose rock")
-//    }
-//    else if (player1_choice == 2){
-//      println("The player1 chose paper")
-//    }
-//    else{
-//      print("The player1 chose scissors")
-//    }
-//  }  //Register and shows the players choice
+//  world.objects=List(player1)
+//  def updatePosition(Time: Double): Unit ={
+//    Physics.updateWorld(this.world, Time)
+//  }
 //
 //
-//  def player2_choice(player2_choice): Unit ={
-//    if (player2_choice == 1){
-//      print("The player2 chose rock")
-//    }
-//    else if (player2_choice == 2) {
-//      print("The player2 chose paper")
-//    }
-//    else{
-//      print("The player2 chose scissors")
-//    }
+////  def player_choice(player1_choice: Int) {
+////    //Register and shows the players choice//
+////    if (player1_choice == 1) {
+////      print("The player1 chose rock")
+////    }
+////    else if (player1_choice == 2){
+////      print("The player1 chose paper")
+////    }
+////    else {
+////      print("The player1 chose scissors")
+////    }
+////  }
 //
-//  }  //Register and shows the cpus choice
+////  def player_choice(player1_choice): Unit ={
+////    if (player1_choice == 1){
+////      println("The player1 chose rock")
+////    }
+////    else if (player1_choice == 2){
+////      println("The player1 chose paper")
+////    }
+////    else{
+////      print("The player1 chose scissors")
+////    }
+////  }  //Register and shows the players choice
+////
+////
+////  def player2_choice(player2_choice): Unit ={
+////    if (player2_choice == 1){
+////      print("The player2 chose rock")
+////    }
+////    else if (player2_choice == 2) {
+////      print("The player2 chose paper")
+////    }
+////    else{
+////      print("The player2 chose scissors")
+////    }
+////
+////  }  //Register and shows the cpus choice
+////
+////  def print_score(p1_score, p2_score):  //Identifies the result and print the total score
+////    print("Score:""\nPlayer1:", p1_score, "\nPlayer2:", p2_score)
+////
+////
+////  def validation_input():  //Validates the input
+////  while True:
+////  try:
+////  user_input = int(input("Put your choice:"))
+////  if user_input not in range(1, 4):
+////    print("We only accept commands between 1 and 3, according to the table, type again")
+////  continue
+////  if type(user_input) == int:
+////    break
+////  except ValueError:
+////    print("We only accept exact numbers")
+////  continue
+////  return user_input
+////
+////
+////  print('''1 - Rock
+////  2 - Paper
+////  3 - Scissors''')   //Printing the instructions
+////  human1_score = 0
+////  human2_score = 0
+////  while True:  //The condition is not important since the loop will stop on line 68 if the user wishes so
+////    player1 = validation_input()
+////  player_choice(player1)
+////  ai = random.randint(1, 3)
+////  player2_choice(ai)
+////  human1_score, computer_score = result(player1, ai, human1_score, human2_score)  # Accumulate the score
+////  print_score(human1_score, human2_score)
+////  command = int(input("Type 0 to stop the program, type any another number to keep playing"))
+////  if command == 0:
+////    break
 //
-//  def print_score(p1_score, p2_score):  //Identifies the result and print the total score
-//    print("Score:""\nPlayer1:", p1_score, "\nPlayer2:", p2_score)
-//
-//
-//  def validation_input():  //Validates the input
-//  while True:
-//  try:
-//  user_input = int(input("Put your choice:"))
-//  if user_input not in range(1, 4):
-//    print("We only accept commands between 1 and 3, according to the table, type again")
-//  continue
-//  if type(user_input) == int:
-//    break
-//  except ValueError:
-//    print("We only accept exact numbers")
-//  continue
-//  return user_input
-//
-//
-//  print('''1 - Rock
-//  2 - Paper
-//  3 - Scissors''')   //Printing the instructions
-//  human1_score = 0
-//  human2_score = 0
-//  while True:  //The condition is not important since the loop will stop on line 68 if the user wishes so
-//    player1 = validation_input()
-//  player_choice(player1)
-//  ai = random.randint(1, 3)
-//  player2_choice(ai)
-//  human1_score, computer_score = result(player1, ai, human1_score, human2_score)  # Accumulate the score
-//  print_score(human1_score, human2_score)
-//  command = int(input("Type 0 to stop the program, type any another number to keep playing"))
-//  if command == 0:
-//    break
-
-}
+//}

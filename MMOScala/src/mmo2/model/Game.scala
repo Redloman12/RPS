@@ -95,6 +95,7 @@ class Game {
     val dt = (time - this.lastUpdateTime) / 1000000000.0
     Physics.updateWorld(this.world, dt)
     projectiles = projectiles.filter(po => !po.destroyed)
+    parseGames()
     checkPlayerCollision()
     this.lastUpdateTime = time
   }
@@ -145,6 +146,8 @@ class Game {
     for (player <- games.keys){
       if (player.inGame == false){
         games -= player
+        games -= games(player)
+        games(player).inGame = false
       }
     }
   }

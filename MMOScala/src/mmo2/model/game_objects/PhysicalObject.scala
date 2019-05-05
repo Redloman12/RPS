@@ -1,6 +1,6 @@
-package MMO2.model.game_objects
+package mmo2.model.game_objects
 
-import MMO2.model.physics.PhysicsVector
+import mmo2.model.physics.PhysicsVector
 
 class PhysicalObject(var location: PhysicsVector, var velocity: PhysicsVector) extends GameObject {
 

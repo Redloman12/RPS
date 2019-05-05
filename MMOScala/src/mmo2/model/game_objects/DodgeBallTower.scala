@@ -1,8 +1,8 @@
-package MMO2.model.game_objects
+package mmo2.model.game_objects
 
 import play.api.libs.json.{JsValue, Json}
-import MMO2.model.genetics.genes.Gene
-import MMO2.model.physics.PhysicsVector
+import mmo2.model.genetics.genes.Gene
+import mmo2.model.physics.PhysicsVector
 
 class DodgeBallTower(val x: Int, val y: Int) extends GameObject {
 

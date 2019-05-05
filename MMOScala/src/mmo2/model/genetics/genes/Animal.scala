@@ -1,4 +1,4 @@
-package MMO2.model.genetics.genes
+package mmo2.model.genetics.genes
 
 class Animal(val genes: List[Gene]) {
 

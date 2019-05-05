@@ -1,7 +1,7 @@
-package MMO2.model
+package mmo2.model
 
 import akka.actor.{Actor, ActorRef, PoisonPill, Props}
-import MMO2.model.physics.PhysicsVector
+import mmo2.model.physics.PhysicsVector
 
 
 class GameActor extends Actor {

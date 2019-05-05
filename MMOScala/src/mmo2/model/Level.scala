@@ -1,4 +1,4 @@
-package MMO2.model
+package mmo2.model
 
 object Level {
 

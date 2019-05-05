@@ -1,6 +1,6 @@
-package MMO2.model.physics
+package mmo2.model.physics
 
-import MMO2.model.game_objects.{Boundary, PhysicalObject}
+import mmo2.model.game_objects.{Boundary, PhysicalObject}
 
 object Physics {
 

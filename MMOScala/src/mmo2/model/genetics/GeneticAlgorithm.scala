@@ -1,6 +1,6 @@
-package MMO2.model.genetics
+package mmo2.model.genetics
 
-import MMO2.model.genetics.genes.{Animal, Gene}
+import mmo2.model.genetics.genes.{Animal, Gene}
 
 object GeneticAlgorithm {
 

@@ -1,4 +1,4 @@
-package MMO2.model.physics
+package mmo2.model.physics
 
 class PhysicsVector(var x: Double, var y: Double, var z: Double = 0.0) {
 

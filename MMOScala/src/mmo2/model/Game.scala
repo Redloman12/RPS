@@ -1,8 +1,8 @@
-package MMO2.model
+package mmo2.model
 
 import play.api.libs.json.{JsValue, Json}
-import MMO2.model.game_objects._
-import MMO2.model.physics.{Physics, PhysicsVector, World}
+import mmo2.model.game_objects._
+import mmo2.model.physics.{Physics, PhysicsVector, World}
 
 
 class Game {
@@ -103,7 +103,7 @@ class Game {
       "baseHealth" -> Json.toJson(baseHealth),
       "maxBaseHealth" -> Json.toJson(level.maxBaseHealth),
       "walls" -> Json.toJson(this.walls.map({ w => Json.toJson(Map("x" -> w.x, "y" -> w.y)) })),
-      "MMO2" -> Json.toJson(this.towers.map({ t => Json.toJson(Map("x" -> t.x, "y" -> t.y)) })),
+      "towers" -> Json.toJson(this.towers.map({ t => Json.toJson(Map("x" -> t.x, "y" -> t.y)) })),
       "players" -> Json.toJson(this.players.map({ case (k, v) => Json.toJson(Map(
         "x" -> Json.toJson(v.location.x),
         "y" -> Json.toJson(v.location.y),

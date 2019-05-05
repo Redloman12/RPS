@@ -1,4 +1,4 @@
-package MMO2.model.game_objects
+package mmo2.model.game_objects
 
 class Wall(val x:Int, val y:Int) {
 

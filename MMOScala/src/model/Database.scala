@@ -2,8 +2,6 @@ package model
 
 import java.sql.{Connection, DriverManager, ResultSet}
 
-import MMO.gameObjects.Player2
-
 object Database {
 
 

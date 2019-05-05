@@ -1,6 +1,5 @@
 package model
 
-import MMO.gameObjects.{Player2}
 import play.api.libs.json.{JsValue, Json}
 import MMO.physics._
 import Database._

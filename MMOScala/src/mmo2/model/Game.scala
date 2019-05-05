@@ -8,12 +8,16 @@ import mmo2.model.physics.{Physics, PhysicsVector, World}
 class Game {
 
   val world: World = new World(10)
-
   var towers: List[DodgeBallTower] = List()
   var walls: List[Wall] = List()
   var projectiles: List[PhysicalObject] = List()
-
   var baseHealth = 10
+
+
+
+
+
+
 
   var level: Level = new Level()
 
@@ -71,16 +75,6 @@ class Game {
   def placeWall(x: Int, y: Int): Unit = {
     blockTile(x, y)
     walls = new Wall(x, y) :: walls
-  }
-
-  def placeTower(x: Int, y: Int): Unit = {
-    towers = new DodgeBallTower(x, y) :: towers
-  }
-
-
-  def addProjectile(projectile: PhysicalObject): Unit = {
-    projectiles = projectile :: projectiles
-    world.objects = projectile :: world.objects
   }
 
 

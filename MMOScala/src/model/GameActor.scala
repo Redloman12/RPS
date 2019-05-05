@@ -1,6 +1,5 @@
 package model
 
-import MMO.gameObjects.Player2
 import MMO.physics.PhysicsVector
 import akka.actor.{Actor, ActorRef, PoisonPill, Props}
 import model.Database._

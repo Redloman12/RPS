@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Play RPS</title>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <style>
         canvas {
@@ -42,7 +41,7 @@
 </head>
 <body>
 
-<canvas id="gameCanvas"></canvas>
+<canvas id="gameCanvas" width="1280" height="720"></canvas>
 
 <div style="color:white" class="container">
     User: <input id="user" type="text" name="score" readonly>
@@ -55,8 +54,8 @@
     </div>
 </div>
 
-<script src="gameController.js"></script>
-<script src="gamuu.js"></script>`
+
+<script src="game.js"></script>
 
 
 </body>

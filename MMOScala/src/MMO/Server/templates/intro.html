@@ -43,7 +43,40 @@
 <body>
 <h1>Welcome to RPS battle royale!!!!</h1>
 <div class="box">
-    <h2>Log In</h2>
+    <h2>User Registration</h2>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.username.label }}<br>
+            {{ form.username(size=32) }}<br>
+            {% for error in form.username.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.email.label }}<br>
+            {{ form.email(size=64) }}<br>
+            {% for error in form.email.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}<br>
+            {% for error in form.password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.password2.label }}<br>
+            {{ form.password2(size=32) }}<br>
+            {% for error in form.password2.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    <h3>Log In</h3>
     <form action="/" method="post">
         <input type="text" name="username" id="username" placeholder="Username" required/>
         <br>
@@ -53,6 +86,6 @@
 <a href="game.html">
     <button id="startgame" onclick="getUser()"><input type="submit" class="button" value="Log In"/></button>
 </a>
-<script src=".../web/game.js"></script>
+<script src="../static/game.js"></script>
 </body>
 </html>

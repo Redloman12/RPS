@@ -1,20 +1,27 @@
-package Desktop.view
+package mmo2.view
 
+import io.socket.client.IO
+import io.socket.emitter.Emitter
 import javafx.event.ActionEvent
 import javafx.scene.input.{KeyCode, KeyEvent}
-import model.{Game, GameMap}
+import model.{Game2, GameMap}
+import play.api.libs.json.{JsValue, Json}
 import scalafx.application
-import scalafx.application.JFXApp
+import scalafx.application.{JFXApp, Platform}
 import scalafx.scene.Scene
-import scalafx.scene.control._
-import scalafx.scene.paint.Color._
+import scalafx.scene.control.{Button, PasswordField, TextField}
+import scalafx.scene.paint.Color.{DarkGray, White}
 import scalafx.scene.shape.Rectangle
-import scalafx.scene.text.TextAlignment._
+import scalafx.scene.text.TextAlignment.Center
 import scalafx.scene.text.{Font, Text}
 
 object DesktopAppGUI extends JFXApp {
-  val game = new Game()
-  stage = new application.JFXApp.PrimaryStage {
+  var socket = IO.socket("http://localhost:8080/")
+  socket.connect()
+
+
+  val game=new Game2()
+  this.stage = new application.JFXApp.PrimaryStage {
     title.value = "Test"
     scene = new Scene(1280, 720) {
 
@@ -23,7 +30,7 @@ object DesktopAppGUI extends JFXApp {
 
       var map: GameMap = new GameMap(5000, 3000)
 
-      val gridTexture: List[Rectangle] = map.generate()
+//      val gridTexture: List[Rectangle] = map.generate()
 
       val title = new Text(420, 200, "Welcome to RPS Battle Royale!") {
         textAlignment = Center
@@ -116,18 +123,41 @@ object DesktopAppGUI extends JFXApp {
       }
       def keyPressed(keyCode: KeyCode): Unit = {
         keyCode.getName match {
-          case "W" => game.player1.state.whenUppressed() // INPUT SHIT GOES HERE RYAN
+          case "W" => game.players.values.// INPUT SHIT GOES HERE RYAN
           case "A" => game.player1.state.whenLpressed() // INPUT SHIT GOES HERE RYAN
           case "S" => game.player1.state.whenDownpressed() // INPUT SHIT GOES HERE RYAN
           case "D" => game.player1.state.whenRpressed() // INPUT SHIT GOES HERE RYAN
           case _ => println(keyCode.getName + " pressed with no action")
         }
-        position.text = "X: " + game.player1.location.x.toString() + " Y: "+ game.player1.location.y.toString()
-      }
+        position.text = "X: " + game.players.values.foreach(player =>player.location.x.toString()) + " Y: "+ game.players.values.foreach(player =>player.location.y.toString()
+        }
 
       content = List(title, hint, usernametext, username, passwordtext, password, enter)
 
-      addEventHandler(KeyEvent.KEY_PRESSED, (event: KeyEvent) => keyPressed(event.getCode))
+      addEventHandler(KeyEvent.KEY_PRESSED, (event: KeyEvent) => keyPressed(event.getCode))(event: KeyEvent) => {
+
+        socket.emit("gameState", game.getClass)
+      })
     }
   }
+  class HandleMessagesFromPython() extends Emitter.Listener {
+    override def call(objects: Object*): Unit = {
+      val message = objects.apply(0).toString
+      // do something with message
+      Platform.runLater(() => {
+        val jsonGameState = objects.apply(0).toString
+        println(jsonGameState)
+        val gameState: JsValue = Json.parse(jsonGameState)
+        val player = (gameState \ "players").as[Map[String, JsValue]]
+
+        for ((k, v) <- player) {
+          DesktopAppGUI.equipmentButtons(k).text
+
+          game.players.values.foreach(player => player.location = player.location
+        }
+      }
+  socket.on("gameState", new HandleMessagesFromPython)
+}
+}
+}
 }

@@ -1,5 +1,13 @@
 var socket = io.connect({transports: ['websocket']});
-socket.on('gameState', parseGameState);
+socket.on('connect', function (event) {
+});
+
+// socket.on('gameState', parseGameState);
+socket.on('gameState', function (parseGameState) {
+    console.log(parseGameState);
+    document.getElementById("canvas").value = updatedText;
+
+});
 
 const tileSize = 30;
 
@@ -99,6 +107,10 @@ function placeCircle(x, y, color, size) {
     context.stroke();
 }
 
-
+function edit() {
+    var x = document.getElementById("canvas").value;
+    console.log("in edit")
+    socket.send(x);
+}
 
 

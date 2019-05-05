@@ -36,7 +36,6 @@ function user_send(){
 }
 
 
-
 // wrapper for our game "classes", "methods" and "objects"
 window.Game = {};
 

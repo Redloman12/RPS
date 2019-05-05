@@ -1,7 +1,7 @@
 var socket = io.connect({transports: ['websocket']});
 socket.on('gameState', parseGameState);
 
-const tileSize = 15;
+const tileSize = 30;
 
 var canvas = document.getElementById("canvas");
 var context = canvas.getContext("2d");
@@ -27,7 +27,7 @@ function parseGameState(event) {
     }
 
     for (let player of gameState['players']) {
-        placeCircle(player['x'], player['y'], player['id'] === socket.id ? '#ffff00' : '#56bcff', 2.0);
+        placeCircle(player['x'], player['y'], player['id'] === socket.id ? '#ffff00' : '#56bcff', 5.0);
     }
 
     for (let wall of gameState['walls']) {

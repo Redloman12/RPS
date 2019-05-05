@@ -20,6 +20,9 @@ class Game {
   var players: Map[String, Player] = Map()
   val playerSize: Double = 0.8
 
+
+  var games: Map[Player, Player] = Map()
+
   var lastUpdateTime: Long = System.nanoTime()
 
 
@@ -92,6 +95,7 @@ class Game {
     val dt = (time - this.lastUpdateTime) / 1000000000.0
     Physics.updateWorld(this.world, dt)
     projectiles = projectiles.filter(po => !po.destroyed)
+    checkPlayerCollision()
     this.lastUpdateTime = time
   }
 
@@ -116,10 +120,33 @@ class Game {
     Json.stringify(Json.toJson(gameState))
   }
 
+  def checkPlayerCollision(): Unit ={
+    for (player <- players.keys){
+      for (p <- players.keys){
+        if (player != p){
+          val player1 = players(player)
+          val player2 = players(p)
+          if(player1.location.distance2d(player2.location) < playerSize){
+            if(player1.inGame == false && player2.inGame == false){
+              player1.stop()
+              player2.stop()
+              games += (player1 -> player2)
+              games += (player2 -> player1)
+              player1.inGame = true
+              player2.inGame = true
+            }
+          }
+        }
+      }
+    }
+  }
 
-
-
-
-
+  def parseGames(): Unit ={
+    for (player <- games.keys){
+      if (player.inGame == false){
+        games -= player
+      }
+    }
+  }
 
 }

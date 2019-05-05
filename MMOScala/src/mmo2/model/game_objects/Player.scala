@@ -7,9 +7,15 @@ class Player(inputLocation: PhysicsVector,
 
   val speed: Double = 4.0
 
+  var inGame: Boolean = false
+
+  var choice: Int = 0
+
   def move(direction: PhysicsVector){
-    val normalDirection = direction.normal2d()
-    this.velocity = new PhysicsVector(normalDirection.x * speed, normalDirection.y * speed)
+    if (this.inGame == false) {
+      val normalDirection = direction.normal2d()
+      this.velocity = new PhysicsVector(normalDirection.x * speed, normalDirection.y * speed)
+    }
   }
 
   def stop(): Unit ={

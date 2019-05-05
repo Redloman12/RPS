@@ -123,10 +123,10 @@ object DesktopAppGUI extends JFXApp {
       }
       def keyPressed(keyCode: KeyCode): Unit = {
         keyCode.getName match {
-          case "W" => game.players.values.// INPUT SHIT GOES HERE RYAN
-          case "A" => game.player1.state.whenLpressed() // INPUT SHIT GOES HERE RYAN
-          case "S" => game.player1.state.whenDownpressed() // INPUT SHIT GOES HERE RYAN
-          case "D" => game.player1.state.whenRpressed() // INPUT SHIT GOES HERE RYAN
+//          case "W" => game.players.values.// INPUT SHIT GOES HERE RYAN
+//          case "A" => game.player1.state.whenLpressed() // INPUT SHIT GOES HERE RYAN
+//          case "S" => game.player1.state.whenDownpressed() // INPUT SHIT GOES HERE RYAN
+//          case "D" => game.player1.state.whenRpressed() // INPUT SHIT GOES HERE RYAN
           case _ => println(keyCode.getName + " pressed with no action")
         }
         position.text = "X: " + game.players.values.foreach(player =>player.location.x.toString()) + " Y: "+ game.players.values.foreach(player =>player.location.y.toString()
